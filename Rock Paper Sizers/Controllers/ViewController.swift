@@ -58,11 +58,23 @@ class ViewController: UIViewController {
         } else {
             switch(player) {
             case .rock:
-                outcomeViewController.imageName = "RockCrushesScissors.jpeg"
+                if outcome == Outcome.win {
+                    outcomeViewController.imageName = "RockCrushesScissors.jpeg"
+                } else {
+                    outcomeViewController.imageName = "PaperCoversRock.jpeg"
+                }
             case .scissors:
-                outcomeViewController.imageName = "ScissorsCutPaper.jpg"
+                if outcome == Outcome.win {
+                    outcomeViewController.imageName = "ScissorsCutPaper.jpg"
+                } else {
+                    outcomeViewController.imageName = "RockCrushesScissors.jpg"
+                }
             case .paper:
-                outcomeViewController.imageName = "PaperCoversRock.jpg"
+                if outcome == Outcome.win {
+                    outcomeViewController.imageName = "PaperCoversRock.jpg"
+                } else {
+                    outcomeViewController.imageName = "ScissorsCutPaper.jpg"
+                }
             }
         }
         
