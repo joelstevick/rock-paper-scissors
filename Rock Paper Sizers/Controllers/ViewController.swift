@@ -45,6 +45,11 @@ class ViewController: UIViewController {
         performSegue(withIdentifier: "outcome", sender: self)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // check for configured segue
+        if (segue.identifier == "fromScissors") {
+            player = Tag(rawValue: Tag.scissors.rawValue)!
+        }
         // play the game
         let computer = Tag(rawValue: (Int(arc4random()) % 3) + 1)!
         
@@ -77,8 +82,6 @@ class ViewController: UIViewController {
                 }
             }
         }
-        
-        print(player, computer, outcome, outcomeViewController.imageName!)
         
         outcomeViewController.outcome = outcome
     }
