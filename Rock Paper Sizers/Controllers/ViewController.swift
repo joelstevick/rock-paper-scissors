@@ -18,6 +18,7 @@ struct Challenge: Hashable {
     var player: Tag
     var computer: Tag
 }
+
 let outcome: [Challenge: Outcome] = [
     Challenge(player: .paper, computer: .paper): .draw,
     Challenge(player: .paper, computer: .rock): .win,
@@ -30,23 +31,45 @@ let outcome: [Challenge: Outcome] = [
     Challenge(player: .scissors, computer: .scissors): .draw
 ]
 class ViewController: UIViewController {
-
+    
+    var player = Tag(rawValue: Tag.scissors.rawValue)!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func buttonPressed(_ sender: UIButton) {
-        print(sender.tag)
+        player =  Tag(rawValue: sender.tag)!
         
+        performSegue(withIdentifier: "outcome", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // play the game
         let computer = Tag(rawValue: (Int(arc4random()) % 3) + 1)!
         
-        let player =  Tag(rawValue: sender.tag)!
+        let outcome = outcome[Challenge(player: player, computer: computer)]!
         
-        let gameOutcome = outcome[Challenge(player: player, computer: computer)]!
+        let outcomeViewController = segue.destination as! OutcomeViewController
         
-        print(player, computer, gameOutcome)
+        // determine the image
+        if outcome == Outcome.draw {
+            outcomeViewController.imageName = "itsATie.png"
+        } else {
+            switch(player) {
+            case .rock:
+                outcomeViewController.imageName = "RockCrushesScissors.jpeg"
+            case .scissors:
+                outcomeViewController.imageName = "ScissorsCutPaper.jpg"
+            case .paper:
+                outcomeViewController.imageName = "PaperCoversRock.jpg"
+            }
+        }
+        
+        print(player, computer, outcome, outcomeViewController.imageName!)
+        
+        outcomeViewController.outcome = outcome
     }
-
+    
 }
 

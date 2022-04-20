@@ -20,6 +20,7 @@
 		75D31D62281071B700CD339B /* RockCrushesScissors.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 75D31D5B281071B700CD339B /* RockCrushesScissors.jpeg */; };
 		75D31D63281071B700CD339B /* paper.png in Resources */ = {isa = PBXBuildFile; fileRef = 75D31D5C281071B700CD339B /* paper.png */; };
 		75D31D64281071B700CD339B /* ScissorsCutPaper.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 75D31D5D281071B700CD339B /* ScissorsCutPaper.jpg */; };
+		75D31D672810943400CD339B /* OutcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75D31D662810943400CD339B /* OutcomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		75D31D5B281071B700CD339B /* RockCrushesScissors.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = RockCrushesScissors.jpeg; sourceTree = "<group>"; };
 		75D31D5C281071B700CD339B /* paper.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paper.png; sourceTree = "<group>"; };
 		75D31D5D281071B700CD339B /* ScissorsCutPaper.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ScissorsCutPaper.jpg; sourceTree = "<group>"; };
+		75D31D662810943400CD339B /* OutcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutcomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,8 +75,8 @@
 				75D31D562810719D00CD339B /* images */,
 				75D31D422810714300CD339B /* AppDelegate.swift */,
 				75D31D442810714300CD339B /* SceneDelegate.swift */,
-				75D31D462810714300CD339B /* ViewController.swift */,
-				75D31D482810714300CD339B /* Main.storyboard */,
+				75D31D65281093F100CD339B /* Controllers */,
+				75D31D682810946500CD339B /* View */,
 				75D31D4B2810714500CD339B /* Assets.xcassets */,
 				75D31D4D2810714500CD339B /* LaunchScreen.storyboard */,
 				75D31D502810714500CD339B /* Info.plist */,
@@ -94,6 +96,23 @@
 				75D31D5D281071B700CD339B /* ScissorsCutPaper.jpg */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		75D31D65281093F100CD339B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				75D31D462810714300CD339B /* ViewController.swift */,
+				75D31D662810943400CD339B /* OutcomeViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		75D31D682810946500CD339B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75D31D482810714300CD339B /* Main.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75D31D472810714300CD339B /* ViewController.swift in Sources */,
+				75D31D672810943400CD339B /* OutcomeViewController.swift in Sources */,
 				75D31D432810714300CD339B /* AppDelegate.swift in Sources */,
 				75D31D452810714300CD339B /* SceneDelegate.swift in Sources */,
 			);
