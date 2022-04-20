@@ -20,6 +20,9 @@
                                 <rect key="frame" x="72" y="538" width="75" height="65"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="rock.png"/>
+                                <connections>
+                                    <action selector="rockPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ltd-CK-kvC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xap-Gm-aib" userLabel="scissorsBUtton">
                                 <rect key="frame" x="254" y="538" width="75" height="65"/>
@@ -60,7 +63,7 @@
         <!--Outcome View Controller-->
         <scene sceneID="o2U-wT-q4L">
             <objects>
-                <viewController storyboardIdentifier="outcome" id="taN-KE-GNu" customClass="OutcomeViewController" customModule="Rock_Paper_Sizers" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="outcomeVC" id="taN-KE-GNu" customClass="OutcomeViewController" customModule="Rock_Paper_Sizers" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="674-1l-ZHt">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

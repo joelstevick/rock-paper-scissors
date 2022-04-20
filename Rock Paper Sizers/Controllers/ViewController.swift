@@ -39,23 +39,29 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func rockPressed(_ sender: UIButton) {
+        // Get the OutcomeViewController
+        let controller: OutcomeViewController
+        player =  Tag(rawValue: Tag.rock.rawValue)!
+        controller = storyboard?.instantiateViewController(withIdentifier: "outcomeVC") as! OutcomeViewController
+        
+        // play the game
+        playGame(controller)
+        
+        // Present the view Controller
+        present(controller, animated: true, completion: nil)
+    }
     @IBAction func buttonPressed(_ sender: UIButton) {
         player =  Tag(rawValue: sender.tag)!
         
         performSegue(withIdentifier: "outcome", sender: self)
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        // check for configured segue
-        if (segue.identifier == "fromScissors") {
-            player = Tag(rawValue: Tag.scissors.rawValue)!
-        }
+    func playGame(_ outcomeViewController: OutcomeViewController) {
         // play the game
         let computer = Tag(rawValue: (Int(arc4random()) % 3) + 1)!
         
         let outcome = outcome[Challenge(player: player, computer: computer)]!
-        
-        let outcomeViewController = segue.destination as! OutcomeViewController
+    
         
         // determine the image
         if outcome == Outcome.draw {
@@ -66,13 +72,13 @@ class ViewController: UIViewController {
                 if outcome == Outcome.win {
                     outcomeViewController.imageName = "RockCrushesScissors.jpeg"
                 } else {
-                    outcomeViewController.imageName = "PaperCoversRock.jpeg"
+                    outcomeViewController.imageName = "PaperCoversRock.jpg"
                 }
             case .scissors:
                 if outcome == Outcome.win {
                     outcomeViewController.imageName = "ScissorsCutPaper.jpg"
                 } else {
-                    outcomeViewController.imageName = "RockCrushesScissors.jpg"
+                    outcomeViewController.imageName = "RockCrushesScissors.jpeg"
                 }
             case .paper:
                 if outcome == Outcome.win {
@@ -84,6 +90,17 @@ class ViewController: UIViewController {
         }
         
         outcomeViewController.outcome = outcome
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // check for configured segue
+        if (segue.identifier == "fromScissors") {
+            player = Tag(rawValue: Tag.scissors.rawValue)!
+        }
+        let outcomeViewController = segue.destination as! OutcomeViewController
+        // play the game
+        playGame(outcomeViewController)
+       
     }
     
 }
